@@ -34,3 +34,5 @@ CREATE DATABASE DataWarehouse;
 CREATE SCHEMA bronze;  -- Raw data
 CREATE SCHEMA silver;  -- Cleaned data  
 CREATE SCHEMA gold;    -- Business data
+
+# Test push
