@@ -32,6 +32,9 @@ CREATE SCHEMA gold;    -- Business data
 
 ---Source CRM Table Creation
 
+-- Drop the table if it exists
+DROP TABLE IF EXISTS bronze.crm_cust_info;
+
 -- Customer information table
 CREATE TABLE bronze.crm_cust_info(
    cst_id INTEGER PRIMARY KEY,
@@ -43,6 +46,9 @@ CREATE TABLE bronze.crm_cust_info(
    cst_create_date DATE
 );
 
+-- Drop the table if it exists
+DROP TABLE IF EXISTS bronze.crm_prd_info;
+
 -- Product information table
 CREATE TABLE bronze.crm_prd_info(
    prd_id INTEGER,
@@ -53,6 +59,9 @@ CREATE TABLE bronze.crm_prd_info(
    prd_start_dt DATE,
    prd_end_dt DATE
 );
+
+-- Drop the table if it exists
+DROP TABLE IF EXISTS bronze.crm_sales_details;
 
 -- Sales details table with corrected foreign keys
 CREATE TABLE bronze.crm_sales_details(
@@ -70,20 +79,30 @@ CREATE TABLE bronze.crm_sales_details(
    FOREIGN KEY(sls_prd_key) REFERENCES bronze.crm_prd_info(prd_key)
 );
 
-CREATE TABLE bronze.erp_cust(
+-- Drop the table if it exists
+DROP TABLE IF EXISTS bronze.erp_cust_az12;
+
+CREATE TABLE bronze.erp_cust_az12(
    c_id VARCHAR(50),
    b_date DATE, 
    gender  VARCHAR(50)
 );
 
-CREATE TABLE bronze.erp_loc(
+-- Drop the table if it exists
+DROP TABLE IF EXISTS bronze.erp_loc_a101;
+
+CREATE TABLE bronze.erp_loc_a101(
    c_id VARCHAR(50) ,
    country VARCHAR(50)
 );
 
-CREATE TABLE bronze.erp_prd_maintenance(
+-- Drop the table if it exists
+DROP TABLE IF EXISTS bronze.erp_px_cat_g1v2;
+
+CREATE TABLE bronze.erp_px_cat_g1v2(
    id VARCHAR(50),
    cat VARCHAR(50),
    subcat VARCHAR(50),
    maintenance VARCHAR(50)
 );
+
