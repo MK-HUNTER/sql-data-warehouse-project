@@ -1,5 +1,5 @@
 -- ============================================================
--- Data Warehouse Setup Script
+-- Data Warehouse Setup Script - PostgreSQL
 -- ============================================================
 -- Creates a data warehouse database with bronze, silver, gold schemas
 -- 
@@ -7,6 +7,10 @@
 --   - bronze: Raw data ingestion layer (landing zone)
 --   - silver: Cleaned and validated data layer  
 --   - gold: Business-ready aggregated data layer
+-- 
+-- Author: Madhan Kumar
+-- Created: 2025-07-11
+-- Database: PostgreSQL
 -- ============================================================
 
 -- Terminate any existing connections
