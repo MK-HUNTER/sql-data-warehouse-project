@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS bronze.crm_cust_info;
 -- Customer information table
 -- Contains master customer data from CRM system
 CREATE TABLE bronze.crm_cust_info(
-    cst_id              INTEGER PRIMARY KEY,
+    cst_id              INTEGER,
     cst_key             VARCHAR(50),
     cst_firstname       VARCHAR(50),
     cst_lastname        VARCHAR(50),
@@ -35,7 +35,7 @@ CREATE TABLE bronze.crm_cust_info(
 -- Contains master product data from CRM system
 CREATE TABLE bronze.crm_prd_info(
     prd_id          INTEGER,
-    prd_key         VARCHAR(50) PRIMARY KEY,
+    prd_key         VARCHAR(50),
     prd_nm          VARCHAR(50),
     prd_cost        INTEGER,
     prd_line        VARCHAR(50),
@@ -49,15 +49,12 @@ CREATE TABLE bronze.crm_sales_details(
     sls_ord_num     VARCHAR(50),
     sls_prd_key     VARCHAR(50),  -- References crm_prd_info.prd_key
     sls_cust_id     INTEGER,      -- References crm_cust_info.cst_id
-    sls_order_dt    DATE,
-    sls_ship_dt     DATE,
-    sls_due_dt      DATE,
+    sls_order_dt    INTEGER,
+    sls_ship_dt     INTEGER,
+    sls_due_dt      INTEGER,
     sls_sales       INTEGER,
     sls_quantity    INTEGER,
-    sls_price       INTEGER,
-    -- Foreign key constraints
-    FOREIGN KEY(sls_cust_id) REFERENCES bronze.crm_cust_info(cst_id),
-    FOREIGN KEY(sls_prd_key) REFERENCES bronze.crm_prd_info(prd_key)
+    sls_price       INTEGER
 );
 
 -- =============================================================================
