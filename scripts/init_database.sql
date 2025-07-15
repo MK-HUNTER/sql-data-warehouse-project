@@ -13,6 +13,9 @@
 -- Database: PostgreSQL
 -- ============================================================
 
+-- Note: Connect to Default PostgreSQL Database
+\c postgres
+
 -- Terminate any existing connections
 SELECT pg_terminate_backend(pid)
 FROM pg_stat_activity
@@ -23,8 +26,8 @@ WHERE datname = 'datawarehouse'
 DROP DATABASE IF EXISTS datawarehouse;
 CREATE DATABASE datawarehouse;
 
--- Note: Connect to the DataWarehouse database before running the schema commands below
-
+-- Connect to the new database
+\c datawarehouse
 -- Create schemas for data lakehouse layers
 CREATE SCHEMA IF NOT EXISTS bronze;  -- Raw data
 CREATE SCHEMA IF NOT EXISTS silver;  -- Cleaned data  
